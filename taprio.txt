@@ -1,0 +1,6 @@
+Router
+sudo tc qdisc replace dev eth1 parent root handle 100 taprio num_tc 4 map 3 3 1 2 3 0 3 3 3 3 3 3 3 3 3 3 queues 1@0 1@0 1@0 1@0 base-time 0 sched-entry S 1 300000 sched-entry S 6 300000 sched-entry S 8 400000 flags 0x1 txtime-delay 500000 clockid CLOCK_TAI
+
+Node
+sudo tc qdisc add dev eth1 parent root handle 100 mqprio num_tc 3 map 2 2 1 0 2 2 2 2 2 2 2 2 2 2 2 2 queues 1@0 1@1 1@2 hw 0
+
